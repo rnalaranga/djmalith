@@ -63,7 +63,7 @@
   height: 60vw;
   top: -20%;
   right: -10%;
-  background: radial-gradient(circle, rgba(201, 168, 76, 0.4) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(217, 28, 41, 0.4) 0%, transparent 70%);
 }
 
 .aurora2 {
@@ -142,14 +142,14 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--gold);
+  background: var(--rose);
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
 .labelLine {
   width: 40px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  background: linear-gradient(90deg, transparent, var(--rose), transparent);
 }
 
 @keyframes slide-up {
@@ -195,7 +195,7 @@
 }
 
 .titleMalith {
-  background: linear-gradient(135deg, #e8c97a 0%, #c9a84c 40%, #b76e79 70%, #e8b4b8 100%);
+  background: linear-gradient(135deg, #f5313d 0%, #d91c29 40%, #a10b14 70%, #f5313d 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -279,9 +279,9 @@
 }
 
 .activeDot {
-  background: var(--gold);
-  border-color: rgba(201, 168, 76, 0.5);
-  box-shadow: 0 0 10px var(--gold-glow);
+  background: var(--rose);
+  border-color: rgba(217, 28, 41, 0.5);
+  box-shadow: 0 0 10px var(--rose-glow);
   transform: scale(1.3);
 }
 
@@ -323,7 +323,7 @@
 .scrollWheel {
   width: 4px;
   height: 8px;
-  background: var(--gold);
+  background: var(--rose);
   border-radius: 2px;
   animation: scroll-wheel 1.8s ease-in-out infinite;
 }
