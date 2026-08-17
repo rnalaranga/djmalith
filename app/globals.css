@@ -9,13 +9,13 @@
   --black-elevated: #141414;
   --black-border: #1a1a1a;
 
-  /* Gold */
-  --gold: #c9a84c;
-  --gold-light: #e8c97a;
-  --gold-dark: #9a7a30;
-  --gold-pale: #f5e4b0;
-  --gold-glow: rgba(201, 168, 76, 0.3);
-  --gold-glow-strong: rgba(201, 168, 76, 0.6);
+  /* Gold (Now Premium Red to match request) */
+  --gold: #d91c29;
+  --gold-light: #f5313d;
+  --gold-dark: #a10b14;
+  --gold-pale: #fce3e4;
+  --gold-glow: rgba(217, 28, 41, 0.3);
+  --gold-glow-strong: rgba(217, 28, 41, 0.6);
 
   /* Premium Red (replacing Rose Gold) */
   --rose: #d91c29;
