@@ -1,0 +1,297 @@
+.about {
+  position: relative;
+  padding: var(--section-padding) 0;
+  overflow: hidden;
+}
+
+.bgGlow1, .bgGlow2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+.bgGlow1 {
+  width: 600px;
+  height: 600px;
+  top: -100px;
+  right: -200px;
+  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+}
+
+.bgGlow2 {
+  width: 500px;
+  height: 500px;
+  bottom: -150px;
+  left: -150px;
+  background: radial-gradient(circle, rgba(183,110,121,0.06) 0%, transparent 70%);
+}
+
+.aboutInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+
+/* Image Column */
+.imageCol {
+  position: relative;
+}
+
+.imageFrame {
+  position: relative;
+  border-radius: 24px;
+  overflow: visible;
+}
+
+.frameDecor {
+  position: absolute;
+  inset: -12px;
+  border-radius: 28px;
+  border: 1px solid rgba(201,168,76,0.2);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.frameDecor::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(183,110,121,0.1);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 125%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 20px 80px rgba(0,0,0,0.6), 0 0 60px rgba(201,168,76,0.08);
+}
+
+.profileImage {
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.6s ease;
+}
+
+.imageFrame:hover .profileImage {
+  transform: scale(1.03);
+}
+
+.imageTint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0,0,0,0.6) 100%
+  );
+}
+
+/* Badge */
+.badge {
+  position: absolute;
+  top: 24px;
+  right: -16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: rgba(10,10,10,0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 100px;
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  box-shadow: var(--shadow-gold);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Ring decorator */
+.ringDecor {
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px dashed rgba(183,110,121,0.25);
+  animation: spin-slow 20s linear infinite;
+}
+
+.ringDecor::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  right: 15%;
+  bottom: 15%;
+  border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Stats card */
+.statsCard {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+.statsCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--rose), transparent);
+}
+
+.statsCardInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 16px 24px;
+}
+
+.miniStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.miniStatNum {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--gold-light);
+}
+
+.miniStatLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+.miniDivider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255,255,255,0.08);
+}
+
+/* Text Column */
+.textCol {
+  padding-left: clamp(0px, 2vw, 20px);
+}
+
+.aboutTitle {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+.aboutText {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.8;
+}
+
+/* Skills */
+.skills {
+  margin-top: 36px;
+  margin-bottom: 36px;
+}
+
+.skillsTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rose-light);
+  margin-bottom: 20px;
+}
+
+.skillItem {
+  margin-bottom: 16px;
+}
+
+.skillHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.skillLabel {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+}
+
+.skillPct {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.skillBar {
+  height: 4px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skillFill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--rose));
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px rgba(201,168,76,0.4);
+}
+
+/* CTAs */
+.aboutCtas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .aboutInner {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .imageFrame { max-width: 420px; margin: 0 auto; }
+  .imageWrapper { padding-bottom: 110%; }
+  .badge { right: 10px; }
+  .statsCard { bottom: -15px; }
+}

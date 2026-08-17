@@ -1,0 +1,261 @@
+.events {
+  position: relative;
+  padding: var(--section-padding) 0;
+  overflow: hidden;
+}
+
+.bgAccent {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(183,110,121,0.05) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* Header */
+.header {
+  margin-bottom: 60px;
+}
+
+/* Event list */
+.eventList {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 48px;
+}
+
+/* Event card */
+.eventCard {
+  position: relative;
+  display: grid;
+  grid-template-columns: 100px 40px 1fr auto;
+  align-items: flex-start;
+  gap: 0 0;
+  padding: 28px 32px 28px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+  cursor: default;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.eventCard:first-child { border-top: 1px solid rgba(255,255,255,0.05); }
+
+.eventCard:hover {
+  background: rgba(201,168,76,0.02);
+  padding-left: 16px;
+  padding-right: 48px;
+  border-radius: 16px;
+  margin-left: -16px;
+  margin-right: 0;
+  border-color: transparent;
+}
+
+/* Date block */
+.dateBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding-top: 4px;
+  flex-shrink: 0;
+  width: 80px;
+}
+
+.dateDay {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.dateMonth {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--rose-light);
+}
+
+.dateYear {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.05em;
+}
+
+/* Connector */
+.connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 8px;
+  position: relative;
+  width: 40px;
+  flex-shrink: 0;
+}
+
+.connectorDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--rose));
+  box-shadow: 0 0 12px var(--gold-glow);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.connectorLine {
+  position: absolute;
+  top: 18px;
+  bottom: -28px;
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(201,168,76,0.3), rgba(183,110,121,0.1), transparent);
+}
+
+/* Event info */
+.eventInfo {
+  padding: 0 24px;
+  flex: 1;
+}
+
+.eventTop {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.eventType {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rose);
+  padding: 3px 10px;
+  border: 1px solid rgba(183,110,121,0.3);
+  border-radius: 100px;
+}
+
+.eventTime {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.eventTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+  transition: color 0.25s ease;
+}
+
+.eventCard:hover .eventTitle { color: var(--gold-light); }
+
+.eventVenue {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.eventVenue svg { color: var(--gold); }
+
+/* Action */
+.eventAction {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 8px;
+}
+
+.ticketBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 100px;
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.ticketBtn:hover {
+  background: var(--gradient-gold);
+  border-color: transparent;
+  color: var(--black-rich);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-2px);
+}
+
+.privateTag {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 100px;
+  padding: 10px 18px;
+  white-space: nowrap;
+}
+
+/* Card hover glow */
+.cardGlow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.02) 50%, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.eventCard:hover .cardGlow { opacity: 1; }
+
+/* View all */
+.viewAll {
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .eventCard {
+    grid-template-columns: 70px 32px 1fr;
+    grid-template-rows: auto auto;
+    padding: 24px 0;
+  }
+
+  .eventAction {
+    grid-column: 3;
+    padding-top: 12px;
+  }
+
+  .dateDay { font-size: 1.8rem; }
+}
+
+@media (max-width: 480px) {
+  .eventCard {
+    grid-template-columns: 60px 30px 1fr;
+  }
+
+  .eventInfo { padding: 0 12px; }
+  .eventTitle { font-size: 1.1rem; }
+
+  .eventTop { flex-wrap: wrap; gap: 8px; }
+}

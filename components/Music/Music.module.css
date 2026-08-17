@@ -1,0 +1,333 @@
+.music {
+  position: relative;
+  padding: var(--section-padding) 0;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    var(--black-rich) 0%,
+    rgba(14, 10, 5, 0.98) 50%,
+    var(--black-rich) 100%
+  );
+}
+
+.bgDecor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.bgGlow {
+  position: absolute;
+  width: 800px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse, rgba(201,168,76,0.04) 0%, transparent 70%);
+  filter: blur(60px);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.header .section-subtitle {
+  margin: 0 auto;
+}
+
+.title { text-align: center; }
+
+/* Mix Grid */
+.mixGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+/* Mix Card */
+.mixCard {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Cover */
+.coverWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 70%;
+  overflow: hidden;
+}
+
+.cover {
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.mixCard:hover .cover { transform: scale(1.05); }
+
+.coverOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.1) 0%,
+    rgba(0,0,0,0.7) 100%
+  );
+}
+
+/* Tag */
+.tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.tagFeatured {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: var(--black-rich);
+}
+
+.tagLatest {
+  background: linear-gradient(135deg, var(--rose-dark), var(--rose));
+  color: #fff;
+}
+
+.tagPopular {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+
+/* Play button */
+.playBtn {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(10,10,10,0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(201,168,76,0.4);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.playBtn:hover,
+.playBtn.playing {
+  background: var(--gradient-gold);
+  border-color: transparent;
+  color: var(--black-rich);
+  box-shadow: 0 0 20px var(--gold-glow-strong);
+  transform: scale(1.1);
+}
+
+/* Equalizer */
+.equalizer {
+  position: absolute;
+  bottom: 22px;
+  right: 74px;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 20px;
+}
+
+.eqBar {
+  width: 3px;
+  border-radius: 2px;
+  background: var(--gold);
+  animation: bar-pulse 0.8s ease-in-out infinite alternate;
+}
+
+.eqBar:nth-child(1) { height: 60%; }
+.eqBar:nth-child(2) { height: 90%; }
+.eqBar:nth-child(3) { height: 50%; }
+.eqBar:nth-child(4) { height: 80%; }
+.eqBar:nth-child(5) { height: 40%; }
+
+@keyframes bar-pulse {
+  from { transform: scaleY(0.3); }
+  to { transform: scaleY(1); }
+}
+
+/* Mix Info */
+.mixInfo {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mixMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.genre {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rose-light);
+}
+
+.bpm {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.4);
+}
+
+.mixTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.mixDesc {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.65;
+  flex: 1;
+}
+
+/* Progress bar */
+.progressBar {
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--rose));
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.progressTimes {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.35);
+  margin-top: -4px;
+}
+
+/* Mix footer */
+.mixFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.mixStats {
+  display: flex;
+  gap: 16px;
+}
+
+.mixStat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.45);
+}
+
+.mixStat svg { color: var(--gold); }
+
+.downloadBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.downloadBtn:hover {
+  background: rgba(201,168,76,0.1);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* Platform links */
+.platformLinks {
+  text-align: center;
+}
+
+.platformText {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+}
+
+.platforms {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.platformBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 100px;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(10px);
+}
+
+.platformBtn:hover {
+  border-color: var(--gold-glow);
+  color: var(--gold);
+  background: rgba(201,168,76,0.05);
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .mixGrid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 640px) {
+  .mixGrid { grid-template-columns: 1fr; }
+}
