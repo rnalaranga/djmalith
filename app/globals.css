@@ -17,13 +17,13 @@
   --gold-glow: rgba(201, 168, 76, 0.3);
   --gold-glow-strong: rgba(201, 168, 76, 0.6);
 
-  /* Rose Gold */
-  --rose: #b76e79;
-  --rose-light: #e8b4b8;
-  --rose-dark: #8b4f58;
-  --rose-pale: #f5d5d8;
-  --rose-glow: rgba(183, 110, 121, 0.3);
-  --rose-glow-strong: rgba(183, 110, 121, 0.6);
+  /* Premium Red (replacing Rose Gold) */
+  --rose: #d91c29;
+  --rose-light: #f5313d;
+  --rose-dark: #a10b14;
+  --rose-pale: #fce3e4;
+  --rose-glow: rgba(217, 28, 41, 0.3);
+  --rose-glow-strong: rgba(217, 28, 41, 0.6);
 
   /* Text */
   --text-primary: #ffffff;
