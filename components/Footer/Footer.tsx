@@ -17,8 +17,8 @@ export default function Footer() {
               <path d="M16 4L16 11M16 21L16 28M4 16L11 16M21 16L28 16" stroke="url(#fLogoGrad)" strokeWidth="1.2"/>
               <defs>
                 <linearGradient id="fLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#c9a84c"/>
-                  <stop offset="100%" stopColor="#b76e79"/>
+                  <stop offset="0%" stopColor="#d91c29"/>
+                  <stop offset="100%" stopColor="#a10b14"/>
                 </linearGradient>
               </defs>
             </svg>

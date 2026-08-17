@@ -41,7 +41,7 @@
 }
 
 .brandAccent {
-  background: linear-gradient(135deg, #c9a84c, #b76e79);
+  background: linear-gradient(135deg, #d91c29, #a10b14);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -160,7 +160,7 @@
 .bookBtn {
   display: inline-block;
   padding: 11px 28px;
-  background: linear-gradient(135deg, #c9a84c, #b76e79);
+  background: linear-gradient(135deg, #d91c29, #a10b14);
   color: #fff;
   font-size: 0.82rem;
   font-weight: 700;

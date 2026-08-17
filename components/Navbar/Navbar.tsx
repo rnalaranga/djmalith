@@ -63,8 +63,8 @@ export default function Navbar() {
               <path d="M16 4 L16 11 M16 21 L16 28 M4 16 L11 16 M21 16 L28 16" stroke="url(#logoGrad)" strokeWidth="1.2"/>
               <defs>
                 <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#c9a84c"/>
-                  <stop offset="100%" stopColor="#b76e79"/>
+                  <stop offset="0%" stopColor="#d91c29"/>
+                  <stop offset="100%" stopColor="#a10b14"/>
                 </linearGradient>
               </defs>
             </svg>
