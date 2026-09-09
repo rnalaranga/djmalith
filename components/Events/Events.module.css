@@ -259,3 +259,193 @@
 
   .eventTop { flex-wrap: wrap; gap: 8px; }
 }
+
+/* Calendar View Styles */
+.calendarContainer {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 40px;
+  align-items: start;
+}
+
+.calendarSection {
+  background: rgba(20, 20, 20, 0.5);
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.calendarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.monthNav {
+  background: transparent;
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.monthNav:hover {
+  background: var(--gold);
+  color: #000;
+}
+
+.currentMonth {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0;
+}
+
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  text-align: center;
+}
+
+.dayName {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  color: var(--gold);
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 10px;
+}
+
+.calendarDay {
+  position: relative;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.02);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.calendarDay:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.emptyDay {
+  height: 60px;
+}
+
+.dayNumber {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.calendarDay.hasEvent {
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.3);
+}
+
+.calendarDay.hasEvent .dayNumber {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.eventDot {
+  position: absolute;
+  bottom: 8px;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--gold-glow);
+}
+
+/* Sidebar Events */
+.eventListSide {
+  background: rgba(20, 20, 20, 0.5);
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.upcomingTitle {
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 10px;
+}
+
+.eventSideCards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.eventSideCard {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.eventSideDate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.03);
+  padding: 10px;
+  border-radius: 8px;
+  min-width: 60px;
+}
+
+.sideDay {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.sideMonth {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.7rem;
+  color: var(--rose-light);
+  text-transform: uppercase;
+}
+
+.eventSideInfo {
+  flex: 1;
+}
+
+.sideTitle {
+  font-size: 1rem;
+  color: #fff;
+  margin: 0 0 5px 0;
+}
+
+.sideVenue {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  margin: 0;
+}
+
+.noEvents {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 992px) {
+  .calendarContainer {
+    grid-template-columns: 1fr;
+  }
+}

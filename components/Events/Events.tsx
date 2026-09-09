@@ -1,12 +1,13 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './Events.module.css';
 
 const events = [
   {
     id: 1,
     date: { day: '24', month: 'AUG', year: '2026' },
+    fullDate: '2026-08-24',
     title: 'Neon Nights Festival',
     venue: 'Club Silk, Colombo',
     type: 'Festival',
@@ -17,6 +18,7 @@ const events = [
   {
     id: 2,
     date: { day: '06', month: 'SEP', year: '2026' },
+    fullDate: '2026-09-06',
     title: 'Gold & Glass Private Party',
     venue: 'Cinnamon Grand Rooftop, Colombo',
     type: 'Private Event',
@@ -27,6 +29,7 @@ const events = [
   {
     id: 3,
     date: { day: '18', month: 'SEP', year: '2026' },
+    fullDate: '2026-09-18',
     title: 'Malith Live @ Elevate',
     venue: 'Elevate Nightclub, Kandy',
     type: 'Club Night',
@@ -37,6 +40,7 @@ const events = [
   {
     id: 4,
     date: { day: '04', month: 'OCT', year: '2026' },
+    fullDate: '2026-10-04',
     title: 'Sri Lanka Music Awards',
     venue: 'BMICH, Colombo',
     type: 'Awards Show',
@@ -47,6 +51,7 @@ const events = [
   {
     id: 5,
     date: { day: '15', month: 'NOV', year: '2026' },
+    fullDate: '2026-11-15',
     title: 'Sunset Sessions Galle',
     venue: 'Galle Fort, Galle',
     type: 'Outdoor',
@@ -56,8 +61,13 @@ const events = [
   },
 ];
 
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
 export default function Events() {
   const sectionRef = useRef<HTMLElement>(null);
+  
+  const [currentDate, setCurrentDate] = useState(new Date(2026, 8, 1)); // September 2026
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -76,6 +86,40 @@ export default function Events() {
     return () => observer.disconnect();
   }, []);
 
+  const prevMonth = () => {
+    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
+  };
+
+  const nextMonth = () => {
+    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
+  };
+
+  const getDaysInMonth = (year: number, month: number) => new Date(year, month + 1, 0).getDate();
+  const getFirstDayOfMonth = (year: number, month: number) => new Date(year, month, 1).getDay();
+
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth();
+  const daysInMonth = getDaysInMonth(year, month);
+  const firstDay = getFirstDayOfMonth(year, month);
+
+  const days = [];
+  for (let i = 0; i < firstDay; i++) {
+    days.push(<div key={`empty-${i}`} className={styles.emptyDay}></div>);
+  }
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+    const dayEvents = events.filter(e => e.fullDate === dateStr);
+    const hasEvent = dayEvents.length > 0;
+
+    days.push(
+      <div key={d} className={`${styles.calendarDay} ${hasEvent ? styles.hasEvent : ''}`}>
+        <span className={styles.dayNumber}>{d}</span>
+        {hasEvent && <div className={styles.eventDot}></div>}
+      </div>
+    );
+  }
+
   return (
     <section id="events" className={styles.events} ref={sectionRef}>
       <div className={styles.bgAccent} />
@@ -92,77 +136,51 @@ export default function Events() {
           </p>
         </div>
 
-        {/* Event list */}
-        <div className={styles.eventList}>
-          {events.map((event, i) => (
-            <div
-              key={event.id}
-              className={`${styles.eventCard} reveal`}
-              style={{ transitionDelay: `${i * 0.1}s` }}
-            >
-              {/* Date block */}
-              <div className={styles.dateBlock}>
-                <span className={styles.dateDay}>{event.date.day}</span>
-                <span className={styles.dateMonth}>{event.date.month}</span>
-                <span className={styles.dateYear}>{event.date.year}</span>
-              </div>
-
-              {/* Connector line */}
-              <div className={styles.connector}>
-                <div className={styles.connectorDot} />
-                {i < events.length - 1 && <div className={styles.connectorLine} />}
-              </div>
-
-              {/* Event info */}
-              <div className={styles.eventInfo}>
-                <div className={styles.eventTop}>
-                  <span className={styles.eventType}>{event.type}</span>
-                  <div className={styles.eventTime}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                    </svg>
-                    {event.time}
-                  </div>
-                </div>
-
-                <h3 className={styles.eventTitle}>{event.title}</h3>
-
-                <div className={styles.eventVenue}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
-                  </svg>
-                  {event.venue}
-                </div>
-              </div>
-
-              {/* Ticket button */}
-              <div className={styles.eventAction}>
-                {event.tickets ? (
-                  <a href="#" className={styles.ticketBtn}>
-                    Get Tickets
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                  </a>
-                ) : (
-                  <span className={styles.privateTag}>Private Event</span>
-                )}
-              </div>
-
-              {/* Hover glow */}
-              <div className={styles.cardGlow} />
+        <div className={styles.calendarContainer}>
+          {/* Calendar View */}
+          <div className={`${styles.calendarSection} reveal`}>
+            <div className={styles.calendarHeader}>
+              <button onClick={prevMonth} className={styles.monthNav}>&lt;</button>
+              <h3 className={styles.currentMonth}>{months[month]} {year}</h3>
+              <button onClick={nextMonth} className={styles.monthNav}>&gt;</button>
             </div>
-          ))}
-        </div>
+            
+            <div className={styles.calendarGrid}>
+              {daysOfWeek.map(d => (
+                <div key={d} className={styles.dayName}>{d}</div>
+              ))}
+              {days}
+            </div>
+          </div>
 
-        {/* View all */}
-        <div className={`${styles.viewAll} reveal`}>
-          <button className="btn btn-secondary">
-            View All Events
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </button>
+          {/* Event list (sidebar style) */}
+          <div className={`${styles.eventListSide} reveal`} style={{ transitionDelay: '0.2s' }}>
+            <h3 className={styles.upcomingTitle}>Upcoming Shows</h3>
+            <div className={styles.eventSideCards}>
+              {events.filter(e => {
+                  const evDate = new Date(e.fullDate);
+                  return evDate.getFullYear() === year && evDate.getMonth() === month;
+                }).length > 0 ? (
+                  events.filter(e => {
+                    const evDate = new Date(e.fullDate);
+                    return evDate.getFullYear() === year && evDate.getMonth() === month;
+                  }).map((event) => (
+                  <div key={event.id} className={styles.eventSideCard}>
+                    <div className={styles.eventSideDate}>
+                      <span className={styles.sideDay}>{event.date.day}</span>
+                      <span className={styles.sideMonth}>{event.date.month}</span>
+                    </div>
+                    <div className={styles.eventSideInfo}>
+                      <h4 className={styles.sideTitle}>{event.title}</h4>
+                      <p className={styles.sideVenue}>{event.venue}</p>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p className={styles.noEvents}>No events this month.</p>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </section>

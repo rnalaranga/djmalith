@@ -115,25 +115,6 @@ export default function About() {
             From intimate luxury private parties to massive festival stages, DJ Malith brings an unparalleled energy and technical mastery that keeps audiences coming back for more. His productions are characterized by seamless transitions, layered soundscapes, and an infectious passion for music that resonates deeply with every listener.
           </p>
 
-          {/* Skills */}
-          <div className={`${styles.skills} reveal reveal-delay-3`}>
-            <h3 className={styles.skillsTitle}>Genre Expertise</h3>
-            {skills.map(skill => (
-              <div key={skill.label} className={styles.skillItem}>
-                <div className={styles.skillHeader}>
-                  <span className={styles.skillLabel}>{skill.label}</span>
-                  <span className={styles.skillPct}>{skill.pct}%</span>
-                </div>
-                <div className={styles.skillBar}>
-                  <div
-                    className={styles.skillFill}
-                    data-pct={skill.pct}
-                    style={{ width: '0%' }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
 
           {/* Buttons */}
           <div className={`${styles.aboutCtas} reveal reveal-delay-4`}>

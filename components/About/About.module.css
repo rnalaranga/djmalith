@@ -295,3 +295,47 @@
   .badge { right: 10px; }
   .statsCard { bottom: -15px; }
 }
+
+/* Islandwide Play Option */
+.islandwide {
+  margin-top: 32px;
+}
+
+.islandwideCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: rgba(201, 168, 76, 0.05);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  padding: 24px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.islandwideCard:hover {
+  background: rgba(201, 168, 76, 0.08);
+  border-color: rgba(201, 168, 76, 0.4);
+}
+
+.islandwideIcon {
+  color: var(--gold);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(201, 168, 76, 0.1);
+  border-radius: 50%;
+}
+
+.islandwideInfo {
+  flex: 1;
+}
+
+.islandwideText {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin: 0;
+}

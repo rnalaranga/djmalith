@@ -92,6 +92,7 @@ const addOns = [
   { name: 'Live Saxophone / Percussion', price: '15,000 LKR' },
   { name: 'Event Teaser Video', price: '20,000 LKR' },
   { name: 'Live Stream Setup', price: '25,000 LKR' },
+  { name: 'Islandwide Travel Option', price: 'Available' },
 ];
 
 export default function Packages() {

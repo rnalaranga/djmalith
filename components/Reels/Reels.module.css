@@ -1,0 +1,101 @@
+.reelsSection {
+  padding: var(--section-padding) 0;
+  position: relative;
+}
+
+.header {
+  margin-bottom: 50px;
+}
+
+.reelsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.reelCard {
+  background: rgba(20, 20, 20, 0.5);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.reelCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+  box-shadow: 0 10px 30px rgba(201, 168, 76, 0.1);
+}
+
+.imageWrapper {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  width: 100%;
+  overflow: hidden;
+}
+
+.reelImage {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.reelCard:hover .reelImage {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.reelCard:hover .overlay {
+  opacity: 1;
+}
+
+.reelInfo {
+  padding: 16px;
+}
+
+.reelTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: #fff;
+  margin: 0 0 8px 0;
+}
+
+.reelViews {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.ctaContainer {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .reelsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .reelsGrid {
+    grid-template-columns: 1fr;
+  }
+  .imageWrapper {
+    aspect-ratio: 4 / 5;
+  }
+}
